@@ -17,7 +17,6 @@ export class AppController {
 
   @Get()
   getMineArray(@Query('rows') rows, @Query('columns') columns, @Query('mines') mines): boolean[][]{
-    console.log("yessss")
     return this.mineService.getMineArray(rows, columns, mines);
   }
 }
