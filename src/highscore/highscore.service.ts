@@ -16,4 +16,8 @@ export class HighscoreService {
     addHighScore(highScore : HighScore){
         this.arr_HighScore.push(highScore);
     }
+
+    deleteAll(){
+        this.arr_HighScore = [];
+    }
 }

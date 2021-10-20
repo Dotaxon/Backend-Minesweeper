@@ -35,6 +35,12 @@ export class AppController {
     return this.highScoreService.arr_HighScore.slice(0,10);
   }
 
+  @Get('/highscore/deleteAll')
+  deleteAll(){
+    this.highScoreService.deleteAll();
+    return "{}";
+  }
+
   @Put('/highscore')
   addHighScore(@Body() body : HighScore){
     this.highScoreService.addHighScore(body)
