@@ -69,6 +69,12 @@ export class AppController {
     this.highScoreService.deleteAll();
     return this.highScoreService.arr_HighScore;
   }
+  
+  @Get('/dummyData')
+  createDumyData(){
+    this.highScoreService.createDummyData();
+    return this.getHighScoreArray();
+  }
 
   /**pushes a Highscore in HighScore Array
    * 

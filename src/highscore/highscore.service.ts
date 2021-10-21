@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { GameLevel } from 'src/Enums';
 import { HighScore } from 'src/highscore/HighScore';
 
 @Injectable()
@@ -19,5 +20,13 @@ export class HighscoreService {
 
     deleteAll(){
         this.arr_HighScore = [];
+    }
+
+    createDummyData(){
+        for (let index = 0; index < 10; index++) {
+            this.arr_HighScore.push({'name' : 'blabla', 'seconds' : 123, 'gameLevel' :GameLevel.easy});
+            this.arr_HighScore.push({'name' : 'blabla', 'seconds' : 123, 'gameLevel' :GameLevel.normal});
+            this.arr_HighScore.push({'name' : 'blabla', 'seconds' : 123, 'gameLevel' :GameLevel.hard});
+        }
     }
 }
