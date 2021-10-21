@@ -22,6 +22,10 @@ export class AppController {
     return this.mineService.getMineArray(rows, columns, mines);
   }
 
+  /**Sorts the all HighScores and Returns them
+   * 
+   * @returns Ascending Array of Highscores
+   */
   @Get('/highscore')
   getHighScoreArray(){
 
@@ -29,18 +33,30 @@ export class AppController {
     return this.highScoreService.arr_HighScore;
   }
 
+  /**Sorts the Array and retruns the first few (count) elements
+   * 
+   * @returns 
+   */
   @Get('/highscore/:count')
   getHighScoreArrayPart(){
     this.highScoreService.sort();
     return this.highScoreService.arr_HighScore.slice(0,10);
   }
 
-  @Get('/highscore/deleteAll')
+  /**Deltes the hole Array of Highscores
+   * 
+   * @returns 
+   */
+  @Get('/deleteAll')
   deleteAll(){
     this.highScoreService.deleteAll();
-    return "{}";
+    return this.highScoreService.arr_HighScore;
   }
 
+  /**pushes a Highscore in HighScore Array
+   * 
+   * @param body expects a HighScore
+   */
   @Put('/highscore')
   addHighScore(@Body() body : HighScore){
     this.highScoreService.addHighScore(body)
