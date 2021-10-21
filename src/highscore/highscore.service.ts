@@ -19,6 +19,7 @@ export class HighscoreService {
     }
 
     deleteAll(){
+        console.log("deleted")
         this.arr_HighScore = [];
     }
 
