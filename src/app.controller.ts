@@ -70,6 +70,10 @@ export class AppController {
     return this.highScoreService.arr_HighScore;
   }
   
+  /**Genrates Dummy Data in Backend
+   * 
+   * @returns Complete HighScore Array
+   */
   @Get('/dummyData')
   createDumyData(){
     this.highScoreService.createDummyData();
