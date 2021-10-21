@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { HighScore } from 'src/HighScore';
+import { HighScore } from 'src/highscore/HighScore';
 
 @Injectable()
 export class HighscoreService {

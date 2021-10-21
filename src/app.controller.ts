@@ -1,6 +1,6 @@
 import { Body, ConsoleLogger, Controller, Get, Put, Query } from '@nestjs/common';
 import { AppService } from './app.service';
-import { HighScore } from './HighScore';
+import { HighScore } from './highscore/HighScore';
 import { HighscoreService } from './highscore/highscore.service';
 import { MineService } from './mine/mine.service';
 
