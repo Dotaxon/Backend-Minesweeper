@@ -1,5 +1,7 @@
-import { Body, ConsoleLogger, Controller, Get, Put, Query } from '@nestjs/common';
+import { Body, ConsoleLogger, Controller, Get, Param, Put, Query } from '@nestjs/common';
+import { filter } from 'rxjs';
 import { AppService } from './app.service';
+import { GameLevel } from './Enums';
 import { HighScore } from './highscore/HighScore';
 import { HighscoreService } from './highscore/highscore.service';
 import { MineService } from './mine/mine.service';
@@ -38,10 +40,25 @@ export class AppController {
    * @returns 
    */
   @Get('/highscore/:count')
-  getHighScoreArrayPart(){
+  getHighScoreArrayPart(@Param('count') count : number){
     this.highScoreService.sort();
-    return this.highScoreService.arr_HighScore.slice(0,10);
+    return this.highScoreService.arr_HighScore.slice(0,count);
   }
+
+
+  /**Sorts the Array and retruns the first few (count) elements
+   * which have the same GameLevel as filter
+   * 
+   * @param count number of Elements to return
+   * @param filter Filters by this value only these are included
+   * @returns 
+   */
+  @Get('/highscore/:count/:filter')
+  getHighScoreArrayPartWithFilter(@Param('count') count : number, @Param('filter') filter : GameLevel){
+    this.highScoreService.sort();
+    return this.highScoreService.arr_HighScore.filter(highScore => highScore.gameLevel == filter).slice(0,count);
+  }
+
 
   /**Deltes the hole Array of Highscores
    * 
