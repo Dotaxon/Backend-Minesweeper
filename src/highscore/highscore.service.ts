@@ -25,9 +25,9 @@ export class HighscoreService {
 
     createDummyData(){
         for (let index = 0; index < 10; index++) {
-            this.arr_HighScore.push({'name' : 'blabla', 'seconds' : 123, 'difficulty' :GameLevel.easy});
-            this.arr_HighScore.push({'name' : 'blabla', 'seconds' : 123, 'difficulty' :GameLevel.normal});
-            this.arr_HighScore.push({'name' : 'blabla', 'seconds' : 123, 'difficulty' :GameLevel.hard});
+            this.arr_HighScore.push({'name' : 'blabla', 'seconds' : 9999, 'difficulty' :GameLevel.easy});
+            this.arr_HighScore.push({'name' : 'blabla', 'seconds' : 9999, 'difficulty' :GameLevel.normal});
+            this.arr_HighScore.push({'name' : 'blabla', 'seconds' : 9999, 'difficulty' :GameLevel.hard});
         }
     }
 }
