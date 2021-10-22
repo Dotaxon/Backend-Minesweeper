@@ -56,7 +56,7 @@ export class AppController {
   @Get('/highscore/:count/:filter')
   getHighScoreArrayPartWithFilter(@Param('count') count : number, @Param('filter') filter : GameLevel){
     this.highScoreService.sort();
-    return this.highScoreService.arr_HighScore.filter(highScore => highScore.gameLevel == filter).slice(0,count);
+    return this.highScoreService.arr_HighScore.filter(highScore => highScore.difficulty == filter.toUpperCase()).slice(0,count);
   }
 
 
